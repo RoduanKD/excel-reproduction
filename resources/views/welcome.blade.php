@@ -30,6 +30,16 @@
                     @endauth
                 </div>
             @endif
+            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                <a href="{{ url('/export-pdf') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Export Users to PDF</a>
+                @if (Storage::exists('public/users.pdf'))
+                    <a href="/storage/users.pdf" download class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Download PDF</a>
+                @endif
+                <a href="{{ url('/export-excel') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Export Users to Excel</a>
+                @if (Storage::exists('public/users.xlsx'))
+                    <a href="/storage/users.xlsx" download class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Download Excel</a>
+                @endif
+            </div>
 
             <div class="max-w-7xl mx-auto p-6 lg:p-8">
                 <div class="flex justify-center">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Exports\UserExport;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/export-pdf', function () {
+    (new UserExport())->queue('public/users.pdf');
+
+    return redirect()->to('/');
+});
+
+Route::get('/export-excel', function () {
+    (new UserExport())->queue('public/users.xlsx');
+
+    return redirect()->to('/');
 });
